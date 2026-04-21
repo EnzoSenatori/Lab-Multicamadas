@@ -1,7 +1,7 @@
 # O sufixo '_service' é uma  uma convenção comum em arquitetura multicamadas — módulos que contêm regras de negócio costumam se chamar "services"
 # Camada de Negócio - Regras sobre Livros
 # Responsabilidade: aplicar regras de domínio. Não conhece HTTP nem Flask.
-# Só pode chamar a camada de Persistência.
+# Só pode chamar a camada de Persistência, conforme explicitado no import abaixo.
 
 from app.persistence.dados_livros import listar_todos_livros, buscar_livro_por_id
 
