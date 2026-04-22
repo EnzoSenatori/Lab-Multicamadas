@@ -21,6 +21,13 @@ function mostrarTela(nome) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function obterDataHojeISO() {
+    const hoje = new Date();
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoje.getDate()).padStart(2, "0");
+    return `${ano}-${mes}-${dia}`;
+}
 
 async function buscarLivros(termo) {
     const url = `${BASE_URL}/api/livros?termo=${encodeURIComponent(termo)}`;
@@ -186,6 +193,10 @@ async function abrirDetalhe(livroId) {
 
     livroAtual = resultado.dados.livro;
     renderizarDetalhe(resultado.dados.livro, resultado.dados.unidades);
+
+    const inputData = document.getElementById("input-data");
+    inputData.min = obterDataHojeISO();
+
     mostrarTela("detalhe");
 }
 

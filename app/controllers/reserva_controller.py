@@ -23,7 +23,9 @@ def reservar(dados):
         return {"erro": "Livro não encontrado."}, 404
     if not unidade_tem_estoque(livro, unidade): # controller não sabe o que esta regra significa, apenas pergunta para o model; se por ventura mudar, não é necessário alterar a lógica.
         return {"erro": "Unidade sem estoque disponível."}, 400
-
-    reserva = criar_reserva(livro, unidade, usuario=usuario, data=data)
+    try:
+        reserva = criar_reserva(livro, unidade, usuario=usuario, data=data)
+    except ValueError as excecao: # Isso retorna a String de model: "A data da reserva não pode ser anterior à data atual."
+        return {"erro": str(excecao)}, 400
     resposta = {"reserva": reserva}
     return resposta, 201

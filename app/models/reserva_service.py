@@ -6,6 +6,7 @@
 # imports organizados conforme convenção PEP 8 - não sabia que tinha isso.
 import io
 import base64
+from datetime import date
 
 import qrcode # biblioteca externa -> instalar via pip
 
@@ -27,6 +28,11 @@ def gerar_imagem_qr_code(conteudo): # feature nova -> vai gerar um QR Code por r
     return f"data:image/png;base64,{base64_str}"
 
 def criar_reserva(livro, unidade, usuario=None, data=None):
+    if data is not None and data != "":
+        data_reserva = date.fromisoformat(data)
+        data_hoje = date.today()
+        if data_reserva < data_hoje:
+            raise ValueError("A data da reserva não pode ser anterior à data atual.")
     conteudo_qr = gerar_conteudo_qr_code(livro["id"], unidade)
     imagem_qr = gerar_imagem_qr_code(conteudo_qr)
     reserva = {
