@@ -9,7 +9,7 @@ import base64
 
 import qrcode # biblioteca externa -> instalar via pip
 
-from app.persistence.dados_reservas import adicionar_reserva, listar_todas_reservas
+from livraria_app.persistence.dados_reservas import adicionar_reserva, listar_todas_reservas
 
 def gerar_conteudo_qr_code(livro_id, unidade):
     unidade_formatada = unidade.replace(" ", "").upper()
