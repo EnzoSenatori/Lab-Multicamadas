@@ -2,7 +2,7 @@
 # Responsabilidade: validar entrada, orquestrar Negócio, montar resposta.
 # Só pode chamar a camada de Negócio (Model) --> atenção ao Import.
 
-from livraria_app.models.livro_service import (
+from app.models.livro_service import (
     buscar_livros_por_termo,
     obter_livro_por_id,
     obter_estoque,

@@ -3,7 +3,7 @@
 
 from flask import Blueprint, request, jsonify
 
-from livraria_app.controllers.reserva_controller import reservar
+from app.controllers.reserva_controller import reservar
 
 reserva_routes = Blueprint("reserva_routes", __name__) # BluePrint é ideal para caso o projeto cresça
 

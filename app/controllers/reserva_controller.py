@@ -2,8 +2,8 @@
 # Responsabilidade: validar entrada, orquestrar Negócio, montar resposta.
 # Só pode chamar a camada de Negócio (Model) --> Atenção aos imports.
 
-from livraria_app.models.livro_service import obter_livro_por_id
-from livraria_app.models.reserva_service import criar_reserva, unidade_tem_estoque
+from app.models.livro_service import obter_livro_por_id
+from app.models.reserva_service import criar_reserva, unidade_tem_estoque
 
 def reservar(dados):
     livro_id_bruto = dados.get("livro_id")

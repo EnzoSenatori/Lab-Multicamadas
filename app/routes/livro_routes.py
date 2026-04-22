@@ -4,7 +4,7 @@
 
 from flask import Blueprint, request, jsonify
 
-from livraria_app.controllers.livro_controller import buscar_livros, detalhar_livro
+from app.controllers.livro_controller import buscar_livros, detalhar_livro
 
 livro_routes = Blueprint("livro_routes", __name__)
 
