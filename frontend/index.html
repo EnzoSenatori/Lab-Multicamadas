@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-Multicamadas | Livraria</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__content">
+            <div class="brand">
+                <a href="#" id="link-home" class="brand__link">
+                    <span class="brand__logo">Lab-Multicamadas</span>
+                </a>
+                <span class="brand__tagline">Busca, reserva e retirada de livros</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero" id="tela-home">
+            <div class="container hero__content">
+                <p class="hero__eyebrow">Livraria MVP</p>
+                <h1 class="hero__title">Encontre seu livro</h1>
+                <p class="hero__subtitle">
+                    Pesquise por título, autor ou editora e veja em quais unidades ele está disponível.
+                </p>
+
+                <form class="search" id="form-busca">
+                    <input
+                        type="text"
+                        id="input-busca"
+                        class="search__input"
+                        placeholder="Digite o nome do livro, autor ou editora"
+                        aria-label="Buscar livro"
+                        autofocus
+                    >
+                    <button type="submit" class="search__button">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="results-section" id="tela-resultados" hidden>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Resultados</h2>
+                    <p class="section-header__description" id="texto-resultados"></p>
+                </div>
+
+                <div class="book-grid" id="grade-livros"></div>
+            </div>
+        </section>
+
+        <section class="results-section" id="tela-detalhe" hidden>
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-header__title" id="detalhe-titulo"></h2>
+                        <p class="section-header__description" id="detalhe-meta"></p>
+                    </div>
+                    <span class="book-card__badge" id="detalhe-badge"></span>
+                </div>
+
+                <div class="reservation-fields">
+                    <input
+                        type="text"
+                        id="input-usuario"
+                        placeholder="Seu nome (opcional)"
+                        aria-label="Nome do usuário"
+                    >
+                    <input
+                        type="date"
+                        id="input-data"
+                        aria-label="Data da reserva"
+                    >
+                </div>
+
+                <div class="unit-list" id="lista-unidades"></div>
+            </div>
+        </section>
+
+        <section class="results-section" id="tela-confirmacao" hidden>
+            <div class="container" style="max-width: 640px;">
+                <div class="success-panel">
+                    <p class="success-panel__eyebrow">Reserva confirmada</p>
+                    <h2 class="success-panel__title">Sua reserva foi realizada com sucesso.</h2>
+                    <p class="success-panel__text" id="confirmacao-texto"></p>
+
+                    <div class="qr-container">
+                        <img id="confirmacao-qr-imagem" alt="QR Code da reserva">
+                        <p class="qr-container__codigo" id="confirmacao-qr-codigo"></p>
+                    </div>
+
+                    <button id="botao-nova-busca" class="button button--primary">
+                        Nova busca
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>
